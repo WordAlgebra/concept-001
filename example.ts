@@ -76,7 +76,7 @@ function main(): void {
     region   : "US" ,
   };
 
-  const order: Order = {
+  const sampleOrder: Order = {
     amount: 1500,
     hasDiscount: false,
     region: "EU",
@@ -89,7 +89,7 @@ function main(): void {
     ],
   };
 
-  const result = reviewPlacedBy(sampleUser, order);
+  const result = reviewPlacedBy(sampleUser, sampleOrder);
   console.log(`Order approval result: ${result}`);
 }
 
