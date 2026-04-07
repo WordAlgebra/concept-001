@@ -37,7 +37,8 @@ function isPlacableBy(
               const someItemHasInvalidPrice = (eachItem.price < 0);
               
               if (someItemHasInvalidPrice) {
-                return false;
+                everyEncounteredItemHasValidPrice = false;
+                return everyEncounteredItemHasValidPrice;
               }
             }
             return everyEncounteredItemHasValidPrice;
