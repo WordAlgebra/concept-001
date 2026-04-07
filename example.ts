@@ -22,7 +22,7 @@ interface User {
 };
 
 /** A tangled, messy function. */
-function reviewOrder(
+function reviewPlacedBy(
   user: User,
   order: Order,
 ): string {
@@ -89,7 +89,7 @@ function main(): void {
     ],
   };
 
-  const result = reviewOrder(user, order);
+  const result = reviewPlacedBy(user, order);
   console.log(`Order approval result: ${result}`);
 }
 
