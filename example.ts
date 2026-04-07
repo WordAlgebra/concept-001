@@ -89,8 +89,8 @@ function main(): void {
     ],
   };
 
-  const result = reviewPlacedBy(sampleUser, sampleOrder);
-  console.log(`Order approval result: ${result}`);
+  const sampleResult = reviewPlacedBy(sampleUser, sampleOrder);
+  console.log(`Order approval result: ${sampleResult}`);
 }
 
 main();
