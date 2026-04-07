@@ -23,8 +23,8 @@ interface User {
 
 /** A tangled, messy function. */
 function approveOrder(
-  order: Order,
   user: User,
+  order: Order,
 ): string {
   try {
     if (user.isPremium) {
@@ -89,7 +89,7 @@ function main(): void {
     ],
   };
 
-  const result = approveOrder(order, user);
+  const result = approveOrder(user, order);
   console.log(`Order approval result: ${result}`);
 }
 
