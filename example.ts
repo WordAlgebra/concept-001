@@ -38,21 +38,13 @@ function isPlacableBy(
             }
             return true;
           } else {
-            if (givenOrder.currency === "EUR") {
-              return true;
-            } else {
-              return false;
-            }
+            return (givenOrder.currency === "EUR")
           }
         } else {
           return false;
         }
       } else {
-        if (givenOrder.type === "bulk" && !givenUser.isTrial) {
-          return true;
-        } else {
-          return false;
-        }
+        return givenOrder.type === "bulk" && !givenUser.isTrial;
       }
     } else {
       return givenUser.isAdmin;
