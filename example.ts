@@ -31,8 +31,8 @@ function isPlacableBy(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            for (const item of givenOrder.items) {
-              if (item.price < 0) {
+            for (const eachItem of givenOrder.items) {
+              if (eachItem.price < 0) {
                 return false;
               }
             }
