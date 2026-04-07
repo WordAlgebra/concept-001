@@ -52,8 +52,6 @@ function isPlacableBy(
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
     }
-    
-    return false;
   } catch {
     // Just to be safe.
     return false;
