@@ -21,7 +21,7 @@ interface User {
   region: string;
 };
 
-type OrderStatus = string;
+type OrderStatus = "approved" | "rejected";
 
 /** A tangled, messy function. */
 function reviewPlacedBy(
