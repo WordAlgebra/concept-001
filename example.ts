@@ -42,12 +42,12 @@ function isPlacableBy(
         }
         else
         {
-          if ((givenUser.region !== "EU")) {
-            return givenOrder.items.every($0 => ($0.price >= 0));
+          if (!(givenUser.region !== "EU")) {
+            return (givenOrder.currency === "EUR")
           }
           else
           {
-            return (givenOrder.currency === "EUR")
+            return givenOrder.items.every($0 => ($0.price >= 0));
           }
         }
       }
