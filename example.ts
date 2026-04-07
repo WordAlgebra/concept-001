@@ -49,7 +49,7 @@ function isPlacableBy(
       }
     }
     else
-    {
+    if (true) {
       return givenUser.isAdmin;
     }
     
