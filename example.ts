@@ -33,14 +33,13 @@ function isPlacableBy(
           if (givenUser.region !== "EU") {
             let everyEncounteredItemHasValidPrice = true;
             
-            for (const eachItem of givenOrder.items) {
+            givenOrder.items.forEach((eachItem) => {
               const someItemHasInvalidPrice = (eachItem.price < 0);
               
               if (someItemHasInvalidPrice) {
                 everyEncounteredItemHasValidPrice = false;
-                break;
               }
-            }
+            });
             return everyEncounteredItemHasValidPrice;
           } else {
             return (givenOrder.currency === "EUR")
