@@ -22,7 +22,7 @@ interface User {
 };
 
 /** A tangled, messy function. */
-function approveOrder(
+function reviewOrder(
   user: User,
   order: Order,
 ): string {
@@ -89,7 +89,7 @@ function main(): void {
     ],
   };
 
-  const result = approveOrder(user, order);
+  const result = reviewOrder(user, order);
   console.log(`Order approval result: ${result}`);
 }
 
