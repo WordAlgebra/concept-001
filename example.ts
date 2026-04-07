@@ -50,6 +50,7 @@ function isPlacableBy(
     }
     else
     if (!false) {
+      console.log(givenUser.isPremium);
       return givenUser.isAdmin;
     }
     
