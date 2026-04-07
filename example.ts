@@ -30,7 +30,7 @@ function isPlacableBy(
     if (!givenUser.isPremium) {
       return givenUser.isAdmin;
     }
-    
+    else
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
