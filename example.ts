@@ -24,10 +24,10 @@ interface User {
 type OrderStatus = "approved" | "rejected";
 
 /** A tangled, messy function. */
-function reviewPlacedBy(
+function isPlacableBy(
   givenUser: User,
   givenOrder: Order,
-): OrderStatus {
+): boolean {
   try {
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
@@ -35,38 +35,47 @@ function reviewPlacedBy(
           if (givenUser.region !== "EU") {
             for (const item of givenOrder.items) {
               if (item.price < 0) {
-                return "rejected";
+                return false;
               }
             }
-            return "approved";
+            return true;
           } else {
             if (givenOrder.currency === "EUR") {
-              return "approved";
+              return true;
             } else {
-              return "rejected";
+              return false;
             }
           }
         } else {
-          return "rejected";
+          return false;
         }
       } else {
         if (givenOrder.type === "bulk" && !givenUser.isTrial) {
-          return "approved";
+          return true;
         } else {
-          return "rejected";
+          return false;
         }
       }
     } else {
       if (givenUser.isAdmin) {
-        return "approved";
+        return true;
       } else {
-        return "rejected";
+        return false;
       }
     }
   } catch {
     // Just to be safe.
-    return "rejected";
+    return false;
   }
+}
+
+function reviewPlacedBy(
+  givenUser: User,
+  givenOrder: Order,
+): OrderStatus {
+  return isPlacableBy(givenUser, givenOrder)
+    ? "approved"
+    : "rejected";
 }
 
 function main(): void {
