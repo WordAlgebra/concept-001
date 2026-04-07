@@ -21,11 +21,13 @@ interface User {
   region: string;
 };
 
+type OrderStatus = string;
+
 /** A tangled, messy function. */
 function reviewPlacedBy(
   givenUser: User,
   givenOrder: Order,
-): string {
+): OrderStatus {
   try {
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
