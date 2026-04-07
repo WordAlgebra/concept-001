@@ -39,7 +39,7 @@ function isPlacableBy(
           return false;
         }
       } else {
-        return givenOrder.type === "bulk" && !givenUser.isTrial;
+        return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
     } else {
       return givenUser.isAdmin;
