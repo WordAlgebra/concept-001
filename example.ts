@@ -23,14 +23,14 @@ interface User {
 
 /** A tangled, messy function. */
 function reviewPlacedBy(
-  user: User,
+  givenUser: User,
   order: Order,
 ): string {
   try {
-    if (user.isPremium) {
+    if (givenUser.isPremium) {
       if (order.amount > 1000) {
         if (!order.hasDiscount) {
-          if (user.region !== "EU") {
+          if (givenUser.region !== "EU") {
             for (const item of order.items) {
               if (item.price < 0) {
                 return "rejected";
@@ -48,14 +48,14 @@ function reviewPlacedBy(
           return "rejected";
         }
       } else {
-        if (order.type === "bulk" && !user.isTrial) {
+        if (order.type === "bulk" && !givenUser.isTrial) {
           return "approved";
         } else {
           return "rejected";
         }
       }
     } else {
-      if (user.isAdmin) {
+      if (givenUser.isAdmin) {
         return "approved";
       } else {
         return "rejected";
