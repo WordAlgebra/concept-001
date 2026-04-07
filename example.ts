@@ -55,9 +55,6 @@ function isPlacableBy(
         }
       }
     } else {
-      if (givenUser.isAdmin) {
-      } else {
-      }
       return givenUser.isAdmin;
     }
   } catch {
