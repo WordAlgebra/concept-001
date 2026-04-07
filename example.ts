@@ -27,6 +27,10 @@ function isPlacableBy(
   givenOrder: Order,
 ): boolean {
   try {
+    if (!givenUser.isPremium) {
+      return givenUser.isAdmin;
+    }
+    
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
@@ -47,10 +51,6 @@ function isPlacableBy(
       {
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
-    }
-    
-    if (!givenUser.isPremium) {
-      return givenUser.isAdmin;
     }
     
     return false;
