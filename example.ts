@@ -56,10 +56,9 @@ function isPlacableBy(
       }
     } else {
       if (givenUser.isAdmin) {
-        return givenUser.isAdmin;
       } else {
-        return givenUser.isAdmin;
       }
+      return givenUser.isAdmin;
     }
   } catch {
     // Just to be safe.
