@@ -24,21 +24,21 @@ interface User {
 /** A tangled, messy function. */
 function reviewPlacedBy(
   givenUser: User,
-  order: Order,
+  givenOrder: Order,
 ): string {
   try {
     if (givenUser.isPremium) {
-      if (order.amount > 1000) {
-        if (!order.hasDiscount) {
+      if (givenOrder.amount > 1000) {
+        if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            for (const item of order.items) {
+            for (const item of givenOrder.items) {
               if (item.price < 0) {
                 return "rejected";
               }
             }
             return "approved";
           } else {
-            if (order.currency === "EUR") {
+            if (givenOrder.currency === "EUR") {
               return "approved";
             } else {
               return "rejected";
@@ -48,7 +48,7 @@ function reviewPlacedBy(
           return "rejected";
         }
       } else {
-        if (order.type === "bulk" && !givenUser.isTrial) {
+        if (givenOrder.type === "bulk" && !givenUser.isTrial) {
           return "approved";
         } else {
           return "rejected";
