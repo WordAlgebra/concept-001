@@ -49,7 +49,7 @@ function isPlacableBy(
       }
     }
     else
-    if (!false) {
+    if (!givenUser.isPremium) {
       console.log(givenUser.isPremium);
       return givenUser.isAdmin;
     }
