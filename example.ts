@@ -52,6 +52,8 @@ function isPlacableBy(
     {
       return givenUser.isAdmin;
     }
+    
+    return false;
   } catch {
     // Just to be safe.
     return false;
