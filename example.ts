@@ -31,6 +31,8 @@ function isPlacableBy(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
+            let everyEncounteredItemHasValidPrice = true;
+            
             for (const eachItem of givenOrder.items) {
               const someItemHasInvalidPrice = (eachItem.price < 0);
               
@@ -38,7 +40,7 @@ function isPlacableBy(
                 return false;
               }
             }
-            return true;
+            return everyEncounteredItemHasValidPrice;
           } else {
             return (givenOrder.currency === "EUR")
           }
