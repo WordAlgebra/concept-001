@@ -32,7 +32,7 @@ function isPlacableBy(
     }
     else
     {
-      if (!(givenOrder.amount > 1000)) {
+      if ((givenOrder.amount <= 1000)) {
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
       else
@@ -42,7 +42,7 @@ function isPlacableBy(
         }
         else
         {
-          if (!(givenUser.region !== "EU")) {
+          if ((givenUser.region === "EU")) {
             return (givenOrder.currency === "EUR")
           }
           else
