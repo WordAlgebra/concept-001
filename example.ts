@@ -69,7 +69,7 @@ function reviewPlacedBy(
 
 function main(): void {
   // Create a sample user and order that barely passes the approval rules.
-  const user: User = {
+  const sampleUser: User = {
     isPremium: true ,
     isAdmin  : false,
     isTrial  : false,
@@ -89,7 +89,7 @@ function main(): void {
     ],
   };
 
-  const result = reviewPlacedBy(user, order);
+  const result = reviewPlacedBy(sampleUser, order);
   console.log(`Order approval result: ${result}`);
 }
 
