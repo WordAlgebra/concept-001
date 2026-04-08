@@ -26,21 +26,21 @@ function isPlacableBy(
   givenUser: User,
   givenOrder: Order,
 ): boolean {
-  if (!givenUser.isPremium) {
-    return givenUser.isAdmin;
-  }
+  if (
+    !givenUser.isPremium
+  ) return givenUser.isAdmin;
   else
-  if ((givenOrder.amount <= 1000)) {
-    return (givenOrder.type === "bulk") && !givenUser.isTrial;
-  }
+  if (
+    (givenOrder.amount <= 1000)
+  ) return (givenOrder.type === "bulk") && !givenUser.isTrial;
   else
-  if (givenOrder.hasDiscount) {
-    return false;
-  }
+  if (
+    givenOrder.hasDiscount
+  ) return false;
   else
-  if ((givenUser.region === "EU")) {
-    return (givenOrder.currency === "EUR")
-  }
+  if (
+    (givenUser.region === "EU")
+  ) return (givenOrder.currency === "EUR")
   
   return givenOrder.items.every($0 => ($0.price >= 0));
 }
