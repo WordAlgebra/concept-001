@@ -34,7 +34,7 @@ function isPlacableBy(
             let everyItemHasValidPrice: boolean;
             let everyEncounteredItemHasValidPrice = true;
             
-            givenOrder.items.reduce((runningVerdict, eachItem) => {
+            everyItemHasValidPrice = givenOrder.items.reduce((runningVerdict, eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
               everyEncounteredItemHasValidPrice = runningVerdict && eachItemHasValidPrice;
               return everyEncounteredItemHasValidPrice;
