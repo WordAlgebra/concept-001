@@ -38,9 +38,7 @@ function isPlacableBy(
               
               if (!someItemHasInvalidPrice) {
                 everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice;
-              }
-              else
-              {
+              } else {
                 everyEncounteredItemHasValidPrice = false;
               }
             });
