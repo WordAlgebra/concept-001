@@ -37,7 +37,7 @@ function isPlacableBy(
               const eachItemHasValidPrice = !(eachItem.price < 0);
               everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
             });
-            const everyItemHasValidPrice = everyEncounteredItemHasValidPrice;
+            let everyItemHasValidPrice = everyEncounteredItemHasValidPrice;
             return everyItemHasValidPrice;
           } else {
             return (givenOrder.currency === "EUR")
