@@ -31,9 +31,9 @@ function isPlacableBy(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            let everyItemHasValidPrice = givenOrder.items.reduce((runningVerdict, eachItem) => {
+            const everyItemHasValidPrice = givenOrder.items.reduce((runningVerdict, eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
-              let everyEncounteredItemHasValidPrice = runningVerdict && eachItemHasValidPrice;
+              const everyEncounteredItemHasValidPrice = runningVerdict && eachItemHasValidPrice;
               return everyEncounteredItemHasValidPrice;
             }, true);
             return everyItemHasValidPrice;
