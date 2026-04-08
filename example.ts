@@ -26,28 +26,23 @@ function isPlacableBy(
   givenUser: User,
   givenOrder: Order,
 ): boolean {
-  try {
-    if (!givenUser.isPremium) {
-      return givenUser.isAdmin;
-    }
-    else
-    if ((givenOrder.amount <= 1000)) {
-      return (givenOrder.type === "bulk") && !givenUser.isTrial;
-    }
-    else
-    if (givenOrder.hasDiscount) {
-      return false;
-    }
-    else
-    if ((givenUser.region === "EU")) {
-      return (givenOrder.currency === "EUR")
-    }
-    
-    return givenOrder.items.every($0 => ($0.price >= 0));
-  } catch {
-    // Just to be safe.
+  if (!givenUser.isPremium) {
+    return givenUser.isAdmin;
+  }
+  else
+  if ((givenOrder.amount <= 1000)) {
+    return (givenOrder.type === "bulk") && !givenUser.isTrial;
+  }
+  else
+  if (givenOrder.hasDiscount) {
     return false;
   }
+  else
+  if ((givenUser.region === "EU")) {
+    return (givenOrder.currency === "EUR")
+  }
+  
+  return givenOrder.items.every($0 => ($0.price >= 0));
 }
 
 type OrderStatus = "approved" | "rejected";
