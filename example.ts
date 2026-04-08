@@ -42,10 +42,8 @@ function isPlacableBy(
     if ((givenUser.region === "EU")) {
       return (givenOrder.currency === "EUR")
     }
-    else
-    {
-      return givenOrder.items.every($0 => ($0.price >= 0));
-    }
+    
+    return givenOrder.items.every($0 => ($0.price >= 0));
   } catch {
     // Just to be safe.
     return false;
