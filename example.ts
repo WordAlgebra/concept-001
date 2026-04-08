@@ -37,9 +37,9 @@ function isPlacableBy(
               const eachItemHasValidPrice = !(eachItem.price < 0);
               
               if (eachItemHasValidPrice) {
-                everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && true;
+                everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
               } else {
-                everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && false;
+                everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
               }
             });
             return everyEncounteredItemHasValidPrice;
