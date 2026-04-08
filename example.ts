@@ -39,7 +39,7 @@ function isPlacableBy(
               if (eachItemHasValidPrice) {
                 everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && true;
               } else {
-                everyEncounteredItemHasValidPrice = false;
+                everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && false;
               }
             });
             return everyEncounteredItemHasValidPrice;
