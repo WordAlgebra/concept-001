@@ -32,7 +32,7 @@ function isPlacableBy(
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
             let everyItemHasValidPrice: boolean;
-            let everyEncounteredItemHasValidPrice = true;
+            let everyEncounteredItemHasValidPrice: boolean = true;
             
             everyItemHasValidPrice = givenOrder.items.reduce((runningVerdict, eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
