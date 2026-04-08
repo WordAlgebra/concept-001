@@ -67,10 +67,10 @@ function approveOrder(order: Order, user: User): string {
 function main(): void {
   // Create a sample user and order that barely passes the approval rules.
   const user: User = {
-    isPremium: true ,
-    isAdmin  : false,
-    isTrial  : false,
-    region   : "US" ,
+    isPremium: true,
+    isAdmin: false,
+    isTrial: false,
+    region: "US",
   };
 
   const order: Order = {
