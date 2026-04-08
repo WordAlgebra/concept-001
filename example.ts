@@ -32,7 +32,9 @@ function isPlacableBy(
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
             for (const eachItem of givenOrder.items) {
-              if (eachItem.price < 0) {
+              const someItemHasInvalidPrice = (eachItem.price < 0);
+              
+              if (someItemHasInvalidPrice) {
                 return false;
               }
             }
