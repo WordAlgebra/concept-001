@@ -31,13 +31,13 @@ function isPlacableBy(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
+            let everyItemHasValidPrice: boolean;
             let everyEncounteredItemHasValidPrice = true;
             
             givenOrder.items.forEach((eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
               everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
             });
-            let everyItemHasValidPrice: boolean;
             everyItemHasValidPrice = everyEncounteredItemHasValidPrice;
             return everyItemHasValidPrice;
           } else {
