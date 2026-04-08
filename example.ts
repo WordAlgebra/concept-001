@@ -34,10 +34,11 @@ function isPlacableBy(
             let everyItemHasValidPrice: boolean;
             let everyEncounteredItemHasValidPrice = true;
             
-            givenOrder.items.forEach((eachItem) => {
+            givenOrder.items.reduce((_, eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
               everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
-            });
+              return _;
+            }, everyEncounteredItemHasValidPrice);
             everyItemHasValidPrice = everyEncounteredItemHasValidPrice;
             return everyItemHasValidPrice;
           } else {
