@@ -32,13 +32,13 @@ function isPlacableBy(
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
             let everyItemHasValidPrice: boolean;
-            let everyEncounteredItemHasValidPrice: boolean = true;
+            let everyEncounteredItemHasValidPrice: boolean;
             
             everyItemHasValidPrice = givenOrder.items.reduce((runningVerdict, eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
               everyEncounteredItemHasValidPrice = runningVerdict && eachItemHasValidPrice;
               return everyEncounteredItemHasValidPrice;
-            }, everyEncounteredItemHasValidPrice);
+            }, true);
             return everyItemHasValidPrice;
           } else {
             return (givenOrder.currency === "EUR")
