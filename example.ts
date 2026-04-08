@@ -35,11 +35,6 @@ function isPlacableBy(
             
             givenOrder.items.forEach((eachItem) => {
               const eachItemHasValidPrice = !(eachItem.price < 0);
-              
-              if (eachItemHasValidPrice) {
-              } else {
-              }
-              
               everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice && eachItemHasValidPrice;
             });
             return everyEncounteredItemHasValidPrice;
