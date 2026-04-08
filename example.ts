@@ -39,7 +39,7 @@ function isPlacableBy(
               if (!someItemHasInvalidPrice) {
                 everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice;
               }
-              
+              else
               if (someItemHasInvalidPrice) {
                 everyEncounteredItemHasValidPrice = false;
               }
