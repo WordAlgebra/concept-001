@@ -21,8 +21,6 @@ interface User {
   region: string;
 };
 
-type OrderStatus = "approved" | "rejected";
-
 /** A tangled, messy function. */
 function isPlacableBy(
   givenUser: User,
@@ -68,6 +66,8 @@ function isPlacableBy(
     return false;
   }
 }
+
+type OrderStatus = "approved" | "rejected";
 
 function reviewPlacedBy(
   givenUser: User,
