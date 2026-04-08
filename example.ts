@@ -35,8 +35,9 @@ function isPlacableBy(
             
             givenOrder.items.forEach((eachItem) => {
               const someItemHasInvalidPrice = (eachItem.price < 0);
+              const eachItemHasValidPrice = !someItemHasInvalidPrice;
               
-              if (!someItemHasInvalidPrice) {
+              if (eachItemHasValidPrice) {
                 everyEncounteredItemHasValidPrice = everyEncounteredItemHasValidPrice;
               } else {
                 everyEncounteredItemHasValidPrice = false;
