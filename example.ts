@@ -59,21 +59,21 @@ function isApprovable(
   givenOrder: Order,
   givenUser: User,
 ): boolean {
-  if (!givenUser.isPremium) {
-    return givenUser.isAdmin;
-  }
+  if (
+    !givenUser.isPremium
+  ) return givenUser.isAdmin;
   else
-  if (givenOrder.amount <= 1000) {
-    return (givenOrder.type === "bulk") && !givenUser.isTrial;
-  }
+  if (
+    givenOrder.amount <= 1000
+  ) return (givenOrder.type === "bulk") && !givenUser.isTrial;
   else
-  if (givenOrder.hasDiscount) {
-    return false;
-  }
+  if (
+    givenOrder.hasDiscount
+  ) return false;
   else
-  if (givenUser.region === "EU") {
-    return (givenOrder.currency === "EUR");
-  }
+  if (
+    givenUser.region === "EU"
+  ) return (givenOrder.currency === "EUR");
   
   return true;
 }
