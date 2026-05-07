@@ -42,7 +42,7 @@ function isApprovable(
       }
       else
       {
-        if (!!givenOrder.hasDiscount) {
+        if (givenOrder.hasDiscount) {
           return false;
         }
         else
