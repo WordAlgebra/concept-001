@@ -22,7 +22,10 @@ interface User {
 };
 
 /** A tangled, messy function. */
-function approveOrder(order: Order, user: User): string {
+function approveOrder(
+  order: Order,
+  user: User,
+): string {
   try {
     if (user.isPremium) {
       if (order.amount > 1000) {
