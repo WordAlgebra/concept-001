@@ -76,7 +76,7 @@ function isApprovable(
   }
   else
   {
-    return givenOrder.items.every(($0) => $0.price < 0);
+    return givenOrder.items.every(($0) => Price.is($0.price));
   }
 }
 
