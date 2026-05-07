@@ -36,12 +36,14 @@ function isApprovable(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            for (const item of givenOrder.items) {
-              if (item.price < 0) {
-                return false;
+            return (() => {
+              for (const item of givenOrder.items) {
+                if (item.price < 0) {
+                  return false;
+                }
               }
-            }
-            return true;
+              return true;
+            })()
           } else {
             return (givenOrder.currency === "EUR");
           }
