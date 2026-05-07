@@ -27,10 +27,10 @@ type OrderReviewStatus =
 ;
 
 /** A tangled, messy function. */
-function approveOrder(
+function isApprovable(
   givenOrder: Order,
   givenUser: User,
-): OrderReviewStatus {
+): boolean {
   try {
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
@@ -38,38 +38,47 @@ function approveOrder(
           if (givenUser.region !== "EU") {
             for (const item of givenOrder.items) {
               if (item.price < 0) {
-                return "rejected";
+                return false;
               }
             }
-            return "approved";
+            return true;
           } else {
             if (givenOrder.currency === "EUR") {
-              return "approved";
+              return true;
             } else {
-              return "rejected";
+              return false;
             }
           }
         } else {
-          return "rejected";
+          return false;
         }
       } else {
         if (givenOrder.type === "bulk" && !givenUser.isTrial) {
-          return "approved";
+          return true;
         } else {
-          return "rejected";
+          return false;
         }
       }
     } else {
       if (givenUser.isAdmin) {
-        return "approved";
+        return true;
       } else {
-        return "rejected";
+        return false;
       }
     }
   } catch {
     // Just to be safe.
-    return "rejected";
+    return false;
   }
+}
+
+function approveOrder(
+  givenOrder: Order,
+  givenUser: User,
+): OrderReviewStatus {
+  return isApprovable(givenOrder, givenUser)
+    ? "approved"
+    : "rejected";
 }
 
 /**
