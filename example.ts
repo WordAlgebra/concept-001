@@ -74,10 +74,8 @@ function isApprovable(
   if (givenUser.region === "EU") {
     return (givenOrder.currency === "EUR");
   }
-  else
-  {
-    return true;
-  }
+  
+  return true;
 }
 
 function approveOrder(
