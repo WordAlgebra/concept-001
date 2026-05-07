@@ -37,16 +37,24 @@ function isApprovable(
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
             return givenOrder.items.every(($0) => $0.price < 0);
-          } else {
+          }
+          else
+          {
             return (givenOrder.currency === "EUR");
           }
-        } else {
+        }
+        else
+        {
           return false;
         }
-      } else {
+      }
+      else
+      {
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
-    } else {
+    }
+    else
+    {
       return givenUser.isAdmin;
     }
   } catch {
