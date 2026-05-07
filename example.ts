@@ -36,7 +36,7 @@ function isApprovable(
       return givenUser.isAdmin;
     }
     else
-    if (!(givenOrder.amount > 1000)) {
+    if (givenOrder.amount <= 1000) {
       return (givenOrder.type === "bulk") && !givenUser.isTrial;
     }
     else
@@ -44,7 +44,7 @@ function isApprovable(
       return false;
     }
     else
-    if (!(givenUser.region !== "EU")) {
+    if (givenUser.region === "EU") {
       return (givenOrder.currency === "EUR");
     }
     else
