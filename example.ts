@@ -21,7 +21,10 @@ interface User {
   region: string;
 };
 
-type OrderReviewStatus = string;
+type OrderReviewStatus =
+  | "approved"
+  | "rejected"
+;
 
 /** A tangled, messy function. */
 function approveOrder(
