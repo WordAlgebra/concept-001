@@ -24,13 +24,13 @@ interface User {
 /** A tangled, messy function. */
 function approveOrder(
   givenOrder: Order,
-  user: User,
+  givenUser: User,
 ): string {
   try {
-    if (user.isPremium) {
+    if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
-          if (user.region !== "EU") {
+          if (givenUser.region !== "EU") {
             for (const item of givenOrder.items) {
               if (item.price < 0) {
                 return "rejected";
@@ -48,14 +48,14 @@ function approveOrder(
           return "rejected";
         }
       } else {
-        if (givenOrder.type === "bulk" && !user.isTrial) {
+        if (givenOrder.type === "bulk" && !givenUser.isTrial) {
           return "approved";
         } else {
           return "rejected";
         }
       }
     } else {
-      if (user.isAdmin) {
+      if (givenUser.isAdmin) {
         return "approved";
       } else {
         return "rejected";
