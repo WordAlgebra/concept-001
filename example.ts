@@ -32,6 +32,10 @@ function isApprovable(
   givenUser: User,
 ): boolean {
   try {
+    if (!givenUser.isPremium) {
+      return givenUser.isAdmin;
+    }
+    
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
@@ -52,10 +56,6 @@ function isApprovable(
       {
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
-    }
-    
-    if (!givenUser.isPremium) {
-      return givenUser.isAdmin;
     }
   } catch {
     // Just to be safe.
