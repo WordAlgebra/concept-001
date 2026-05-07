@@ -36,26 +36,20 @@ function isApprovable(
       return givenUser.isAdmin;
     }
     else
+    if (!(givenOrder.amount > 1000)) {
+      return (givenOrder.type === "bulk") && !givenUser.isTrial;
+    }
+    else
+    if (givenOrder.hasDiscount) {
+      return false;
+    }
+    else
+    if (!(givenUser.region !== "EU")) {
+      return (givenOrder.currency === "EUR");
+    }
+    else
     {
-      if (!(givenOrder.amount > 1000)) {
-        return (givenOrder.type === "bulk") && !givenUser.isTrial;
-      }
-      else
-      {
-        if (givenOrder.hasDiscount) {
-          return false;
-        }
-        else
-        {
-          if (!(givenUser.region !== "EU")) {
-            return (givenOrder.currency === "EUR");
-          }
-          else
-          {
-            return givenOrder.items.every(($0) => $0.price < 0);
-          }
-        }
-      }
+      return givenOrder.items.every(($0) => $0.price < 0);
     }
   } catch {
     // Just to be safe.
