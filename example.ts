@@ -37,9 +37,9 @@ function isApprovable(
     }
     else
     {
-      if (givenOrder.amount > 1000) {
+      if ((givenOrder.amount > 1000)) {
         if (!givenOrder.hasDiscount) {
-          if (givenUser.region !== "EU") {
+          if ((givenUser.region !== "EU")) {
             return givenOrder.items.every(($0) => $0.price < 0);
           }
           else
