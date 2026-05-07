@@ -10,7 +10,7 @@ interface Order {
   hasDiscount: boolean;
   region: string;
   currency: string;
-  type: string; // e.g. "bulk" or "normal"
+  type: "bulk" | "normal";
   items: Item[];
 };
 
