@@ -29,8 +29,8 @@ type OrderReviewStatus =
 const items_every_hasNonNegativePrice = (
   givenOrder: Order,
 ) => {
-  for (const item of givenOrder.items) {
-    if (item.price < 0) {
+  for (const eachItem of givenOrder.items) {
+    if (eachItem.price < 0) {
       return false;
     }
   }
