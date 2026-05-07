@@ -36,7 +36,7 @@ function isApprovable(
       return givenUser.isAdmin;
     }
     else
-    if (true) {
+    {
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
