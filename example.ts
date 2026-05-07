@@ -64,6 +64,31 @@ function approveOrder(order: Order, user: User): string {
   }
 }
 
+/**
+ * try {
+    if ((user.isPremium && user.region !== "EU") && (order.amount > 1000 && !order.hasDiscount)) {
+      for (const item of order.items) {
+        if (item.price < 0) {
+          return "rejected";
+        }
+      }
+        return "approved";
+      }
+    else if (user.isAdmin) {
+      return "approved"
+    }
+    else if (order.type === "bulk" && !user.isTrial) {
+      return "approved";
+    }
+    else {
+      return "rejected";
+    }
+  } catch {
+    // Just to be safe.
+    return "rejected";
+  }
+ */
+
 function main(): void {
   // Create a sample user and order that barely passes the approval rules.
   const user: User = {
