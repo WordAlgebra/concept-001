@@ -26,15 +26,10 @@ type OrderReviewStatus =
   | "rejected"
 ;
 
-const items_every_hasNonNegativePrice = (
-  givenOrder: Order,
+const hasNonNegativePrice = (
+  givenItem: Item,
 ) => {
-  for (const eachItem of givenOrder.items) {
-    if (eachItem.price < 0) {
-      return false;
-    }
-  }
-  return true;
+  return givenItem.price < 0
 };
 
 /** A tangled, messy function. */
@@ -47,7 +42,7 @@ function isApprovable(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            return items_every_hasNonNegativePrice(givenOrder)
+            return givenOrder.items.every(hasNonNegativePrice)
           } else {
             return (givenOrder.currency === "EUR");
           }
