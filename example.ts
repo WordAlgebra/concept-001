@@ -53,7 +53,7 @@ function isApprovable(
         return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
     }
-    else
+    
     if (!givenUser.isPremium) {
       return givenUser.isAdmin;
     }
