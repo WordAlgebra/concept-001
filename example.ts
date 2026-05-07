@@ -1,7 +1,35 @@
+type Branded<
+  SomePrimitive extends string | number,
+  SomeBrandName extends string,
+> = SomePrimitive & {
+  readonly _brand: SomeBrandName,
+};
+
+type Option<SomeObject> = SomeObject | null | undefined;
+
+type Price = Branded<number, "Price">;
+
+const Price = {
+  is: (
+    givenValue: number
+  ): givenValue is Price => {
+    return givenValue >= 0;
+  },
+  make(
+    givenValue: number,
+  ): Price {
+    if (
+      !this.is(givenValue)
+    ) throw new Error("Price cannot be negative.");
+    
+    return givenValue;
+  }
+}
+
 class Item {
   constructor(
     public name: string,
-    public price: number,
+    public price: Price,
   ) {}
 };
 
@@ -102,11 +130,13 @@ function main(): void {
     currency: "USD",
     type: "normal",
     items: [
-      new Item("Keyboard", 100.0),
-      new Item("Monitor", 200.0),
-      new Item("Mouse", 50.0),
+      new Item("Keyboard", Price.make(100.0)),
+      new Item("Monitor", Price.make(200.0)),
+      new Item("Mouse", Price.make(50.0)),
     ],
   };
+  
+  
 
   const result = approveOrder(order, user);
   console.log(`Order approval result: ${result}`);
