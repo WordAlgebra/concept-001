@@ -42,7 +42,11 @@ function isApprovable(
       }
       else
       {
-        if (!givenOrder.hasDiscount) {
+        if (!!givenOrder.hasDiscount) {
+          return false;
+        }
+        else
+        {
           if ((givenUser.region !== "EU")) {
             return givenOrder.items.every(($0) => $0.price < 0);
           }
@@ -50,10 +54,6 @@ function isApprovable(
           {
             return (givenOrder.currency === "EUR");
           }
-        }
-        else
-        {
-          return false;
         }
       }
     }
