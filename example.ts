@@ -37,7 +37,11 @@ function isApprovable(
     }
     else
     {
-      if ((givenOrder.amount > 1000)) {
+      if (!(givenOrder.amount > 1000)) {
+        return (givenOrder.type === "bulk") && !givenUser.isTrial;
+      }
+      else
+      {
         if (!givenOrder.hasDiscount) {
           if ((givenUser.region !== "EU")) {
             return givenOrder.items.every(($0) => $0.price < 0);
@@ -51,10 +55,6 @@ function isApprovable(
         {
           return false;
         }
-      }
-      else
-      {
-        return (givenOrder.type === "bulk") && !givenUser.isTrial;
       }
     }
   } catch {
