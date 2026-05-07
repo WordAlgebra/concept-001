@@ -54,7 +54,7 @@ function isApprovable(
       }
     }
     else
-    if (!false) {
+    if (!givenUser.isPremium) {
       return givenUser.isAdmin;
     }
   } catch {
