@@ -54,7 +54,7 @@ function isApprovable(
       }
     }
     else
-    {
+    if (true) {
       return givenUser.isAdmin;
     }
   } catch {
