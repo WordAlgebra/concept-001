@@ -42,7 +42,7 @@ function isApprovable(
       if (givenOrder.amount > 1000) {
         if (!givenOrder.hasDiscount) {
           if (givenUser.region !== "EU") {
-            return givenOrder.items.every(hasNonNegativePrice)
+            return givenOrder.items.every(($0) => hasNonNegativePrice($0));
           } else {
             return (givenOrder.currency === "EUR");
           }
