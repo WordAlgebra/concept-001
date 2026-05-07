@@ -21,11 +21,13 @@ interface User {
   region: string;
 };
 
+type OrderReviewStatus = string;
+
 /** A tangled, messy function. */
 function approveOrder(
   givenOrder: Order,
   givenUser: User,
-): string {
+): OrderReviewStatus {
   try {
     if (givenUser.isPremium) {
       if (givenOrder.amount > 1000) {
